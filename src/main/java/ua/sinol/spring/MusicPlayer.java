@@ -1,13 +1,47 @@
 package ua.sinol.spring;
 
-public class MusicPlayer {
-    private Music music;
+import java.util.ArrayList;
+import java.util.List;
 
-    public MusicPlayer(Music music){
-        this.music = music;
+public class MusicPlayer {
+    private List<Music> musicList = new ArrayList<>();
+
+    private String name;
+
+    private String volume;
+
+    public String getName() {
+        return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getVolume() {
+        return volume;
+    }
+
+    public void setVolume(String volume) {
+        this.volume = volume;
+    }
+
+    public MusicPlayer() {
+    }
+
+    public MusicPlayer(List<Music> musicList){
+        this.musicList = musicList;
+    }
+
+
+
     public void playMusic(){
-        System.out.println("Playing: " + music.getSong());
+        for(Music item : musicList){
+            System.out.println("Playing: " + item.getSong());
+        }
+    }
+
+    public void setMusicList(List <Music> musicList) {
+        this.musicList = musicList;
     }
 }
